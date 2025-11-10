@@ -37,8 +37,8 @@ export function Hero() {
                     I love exploring new tools, languages, and ideas not just for a career, but because creating things through code genuinely excites me.
                   </p>
 
-                  <p className="font-poppins">professional experience
-                  </p>
+                  <h2 className="font-poppins text-zinc-300">professional experience
+                  </h2>
                   <p className="font-poppins">
                     arysoft global services -fullstack software developer
                   </p>
