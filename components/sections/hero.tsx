@@ -19,7 +19,7 @@ export function Hero() {
               {/* Name and Title */}
               <div className="pb-3">
                 <h1 className="text-2xl font-poppins font-semibold mb-2 text-zinc-200">
-                  hi, shujan here
+                  hi, samar here
                 </h1>
               </div>
 
@@ -35,16 +35,27 @@ export function Hero() {
                   <p className="font-poppins">
                     I love exploring new tools, languages, and ideas not just for a career, but because creating things through code genuinely excites me.
                   </p>
+
+                  <p className="font-poppins">professional experience
+                  </p>
+                  <p className="font-poppins">
+                    arysoft global services -fullstack software developer
+                  </p>
+                  <p className="font-poppins">
+                    mealmeal - freelance frontend developer
+                  </p>
                 </div>
               </div>
             </div>
+
+
 
             {/* Profile Photo Section */}
             <div className="shrink-0 flex items-start">
               <div className="relative group aspect-square w-14 h-14">
                 <Image
-                  src="https://pbs.twimg.com/profile_images/1933617215485485056/4OF_2abd_400x400.jpg"
-                  alt="Shujan Shaikh's avatar"
+                  src={require("../../assets/samar_pfp.jpeg")}
+                  alt="Samar Sayyad's avatar"
                   fill
                   sizes="56px"
                   className="rounded-full select-none object-cover shadow-lg shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"
@@ -63,7 +74,7 @@ export function Hero() {
               <div className=" border-edge border-t-0">
                 <div className="px-4 py-3 sm:py-4">
                   <h1 className="text-3xl sm:text-4xl font-poppins font-semibold mb-2 text-zinc-200">
-                    hi, shujan here
+                    hi, samar here
                   </h1>
                 </div>
               </div>
@@ -91,8 +102,8 @@ export function Hero() {
               <div className="mx-[2px] my-[2px] relative flex justify-center p-4">
                 <div className="relative group aspect-square w-44 h-44">
                   <Image
-                    src="https://pbs.twimg.com/profile_images/1933617215485485056/4OF_2abd_400x400.jpg"
-                    alt="Shujan Shaikh's avatar"
+                    src={require("../../assets/samar_pfp.jpeg")}
+                    alt="Samar Sayyad's avatar"
                     fill
                     sizes="176px"
                     className="rounded-full select-none object-cover shadow-xl shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"

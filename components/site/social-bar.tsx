@@ -20,19 +20,19 @@ export function SocialBar() {
     {
       name: "GitHub",
       icon: Github,
-      url: "https://github.com/shujanshaikh",
+      url: "https://github.com/samar-58",
       description: "View my GitHub profile",
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      url: "https://www.linkedin.com/in/shujanshaikh/",
+      url: "https://www.linkedin.com/in/samar-sayyad-2641722bb/",
       description: "Connect on LinkedIn",
     },
     {
       name: "Twitter",
       icon: X,
-      url: "https://x.com/shujanshaikh",
+      url: "https://x.com/samardotdev",
       description: "Follow me on X",
     },
     {
@@ -44,7 +44,7 @@ export function SocialBar() {
   ];
 
   const handleEmailClick = async () => {
-    const email = "shaikhshujan@gmail.com";
+    const email = "sayedsamar58@gmail.com";
     try {
       await navigator.clipboard.writeText(email);
       setEmailCopied(true);

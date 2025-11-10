@@ -4,19 +4,17 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "(swiz) vibe coding platform",
-      description: "build full‑stack web apps by prompting",
-      tech: ["next.js", "tailwind", "typescript" , "trpc" , "better-auth" ,  "ai sdk" , "e2b" , "postgres" , "drizzle" , "shadcn" , "polar"],
-      link: "https://www.swizdotdev.space/",
-      github: "https://github.com/shujanshaikh/swizdotdev"
+      title: "aryventory",
+      description: "an app for managing inventory and sales of a retail store",
+      tech: ["react", "react native", "tailwind", "typescript" , "expo" , "sequelize" , "postgres" ,"express", "node.js" ],
+      link: "https://aryventory.com/"
     },
     {
       id: 2,
-      title: "(tabchat) ai chat & image generation platform",
-      description: "an ai chat app and image generation platform supporting all major models for both chat and image generation.",
-      tech: ["nextjs", "typescript", "convex" , "better-auth" , "aisdk"],
-      link: "https://tabchat.vercel.app/",
-      github: "https://github.com/shujanshaikh/tabchat"
+      title: "goschoolify",
+      description: "a platform for managing schools.",
+      tech: ["react","react native", "typescript", "nest.js" , "prisma" , "postgres" , "node.js" ],
+      link: "https://goschoolify.com/",
     },
   ];
 
@@ -62,12 +60,6 @@ const Projects = () => {
                         className="text-sm text-zinc-400 hover:text-zinc-300 transition-colors font-poppins"
                       >
                         view project →
-                      </a>
-                      <a
-                        href={project.github}
-                        className="text-sm text-zinc-400 hover:text-zinc-300 transition-colors font-poppins"
-                      >
-                        github →
                       </a>
                     </div>
                   </div>
