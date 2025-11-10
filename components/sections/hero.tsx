@@ -48,9 +48,7 @@ export function Hero() {
               </div>
             </div>
 
-
-
-            {/* Profile Photo Section */}
+          {/* Profile Photo Section */}
             <div className="shrink-0 flex items-start">
               <div className="relative group aspect-square w-14 h-14">
                 <Image
