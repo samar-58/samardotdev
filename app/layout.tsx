@@ -4,8 +4,8 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Samar Sayyad",
-  description: "Full‑stack Engineer — Next.js, React, TypeScript, React Native,Node.js",
+  title: "Shujan Shaikh",
+  description: "Full‑stack Engineer — Next.js, React, TypeScript",
 };
 
 export default function RootLayout({
