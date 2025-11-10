@@ -90,6 +90,14 @@ export function Hero() {
                     <p className="font-poppins">
                       I love exploring new tools, languages, and ideas not just for a career, but because creating things through code genuinely excites me.
                     </p>
+                    <p className="font-poppins">professional experience
+                    </p>
+                    <p className="font-poppins">
+                      arysoft global services -fullstack software developer
+                    </p>
+                    <p className="font-poppins">
+                      mealmeal - freelance frontend developer
+                    </p>
                   </div>
                 </div>
               </div>
