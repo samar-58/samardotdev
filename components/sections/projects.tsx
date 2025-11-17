@@ -16,6 +16,13 @@ const Projects = () => {
       tech: ["react","react native", "typescript", "nest.js" , "prisma" , "postgres" , "node.js" ],
       link: "https://goschoolify.com/",
     },
+    {
+      id: 3,
+      title: "crowdmint",
+      description: "a data labelling platform to earn rewards on the Solana blockchain.",
+      tech: ["Next.js", "typescript" , "prisma" , "postgres" , "node.js","solana","tailwind","aws S3" ],
+      link: "https://github.com/samar-58/crowdmint",
+    },
   ];
 
   return (
