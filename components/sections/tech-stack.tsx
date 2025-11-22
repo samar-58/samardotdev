@@ -32,7 +32,7 @@ const techStack = [
   { name: "Expo", icon: SiExpo, color: "#ffffff" },
   { name: "React Native", icon: SiReact, color: "#61DAFB" },
   { name: "Solana", icon: SiSolana, color: "#9945FF" },
-  { name: "AWS S3", icon: SiAmazon, color: "#FF9900" },
+  { name: "AWS", icon: SiAmazon, color: "#FF9900" },
 ];
 
 const container = {

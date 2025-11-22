@@ -54,7 +54,7 @@ export function Hero() {
               <div className="relative group aspect-square w-14 h-14">
                 <Image
                   src={samarPfp}
-                  alt="Samar Sayyad's avatar"
+                  alt="Samar's avatar"
                   fill
                   sizes="56px"
                   className="rounded-full select-none object-cover shadow-lg shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"
@@ -110,7 +110,7 @@ export function Hero() {
                 <div className="relative group aspect-square w-44 h-44">
                   <Image
                     src={samarPfp}
-                    alt="Samar Sayyad's avatar"
+                    alt="Samar's avatar"
                     fill
                     sizes="176px"
                     className="rounded-full select-none object-cover shadow-xl shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"

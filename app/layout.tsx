@@ -4,8 +4,19 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Samar Sayyad",
+  title: "Samar",
   description: "Full‑stack Engineer — Next.js, React, TypeScript, React Native,Node.js",
+  icons: {
+    icon: "/samar_pfp.jpeg",
+    apple: "/samar_pfp.jpeg",
+  },
+  openGraph: {
+    images: ["/samar_pfp.jpeg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/samar_pfp.jpeg"],
+  },
 };
 
 export default function RootLayout({
@@ -15,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-       <head>
+      <head>
         {/* put this in the <head> */}
         {process.env.NODE_ENV === "development" && (
           <Script

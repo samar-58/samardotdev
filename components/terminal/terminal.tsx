@@ -73,7 +73,7 @@ export const Terminal = () => {
             case "contact":
                 output = (
                     <div className="space-y-1">
-                        <p>Email: samar@example.com</p>
+                        <p>Email: sayedsamar58@gmail.com</p>
                         <p>GitHub: github.com/samar-58</p>
                     </div>
                 );
