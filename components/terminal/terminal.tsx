@@ -37,7 +37,7 @@ export const Terminal = () => {
             case "about":
                 output = (
                     <div className="space-y-2">
-                        <p>Hi! I'm Samar, a fullstack developer.</p>
+                        <p>Hi! I&apos;m Samar, a fullstack developer.</p>
                         <p>I love building software and exploring new technologies.</p>
                         <p>Currently working at Arysoft Global Services.</p>
                     </div>
@@ -96,13 +96,13 @@ export const Terminal = () => {
     };
 
     return (
-        <section className="py-12 border-t border-zinc-800">
+        <section className="py-12 border-t border-border">
             <div className="px-4">
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="text-lg font-poppins font-semibold mb-8 text-zinc-300 flex items-center gap-2"
+                    className="text-lg font-poppins font-semibold mb-8 text-muted-foreground flex items-center gap-2"
                 >
                     <TerminalIcon className="w-5 h-5" />
                     terminal

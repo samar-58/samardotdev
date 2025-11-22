@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+@variant dark (&:where(.dark, .dark *));
 
 @theme inline {
     --font-sans:
@@ -35,9 +35,9 @@
 }
 
 :root {
-    --background: #1a1a1a;
+    --background: #09090b;
     --foreground: #ffffff;
-    --border: #333333;
+    --border: #27272a;
     --muted: rgba(74, 74, 74, 0.4);
     --muted-foreground: #b3b3b3;
     --sidebar:
@@ -58,13 +58,13 @@
         hsl(217.2 91.2% 59.8%);
 }
 
-[data-theme="dark"] {
-    --background: #1a1a1a;
+.dark {
+    --background: #09090b;
     --foreground: #ffffff;
-    --border: #333333;
+    --border: #27272a;
 }
 
-[data-theme="light"] {
+.light {
     --background: #ffffff;
     --foreground: #0a0a0a;
     --border: #e5e5e5;
@@ -139,12 +139,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #3f3f46;
+    background: var(--muted-foreground);
     border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #52525b;
+    background: var(--foreground);
 }
 
 /* Selection styling */
@@ -190,12 +190,13 @@ body {
 }
 
 @layer base {
-  * {
-    border-color: var(--border);
-    outline-color: var(--border);
+    * {
+        border-color: var(--border);
+        outline-color: var(--border);
     }
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
+
+    body {
+        background-color: var(--background);
+        color: var(--foreground);
     }
 }

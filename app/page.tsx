@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="min-h-screen relative bg-zinc-950 text-zinc-200 selection:bg-zinc-800 selection:text-zinc-100">
+    <div className="min-h-screen relative bg-background text-foreground selection:bg-muted-foreground selection:text-background">
       <Navigation />
 
       <main className="max-w-screen overflow-x-hidden px-4 flex justify-center">

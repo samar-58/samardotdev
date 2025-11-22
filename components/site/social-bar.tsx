@@ -1,20 +1,12 @@
 "use client";
 
-import { Github, Linkedin, Mail, Moon, Sun, X } from "lucide-react";
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { Github, Linkedin, Mail, X } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Separator } from "@/components/ui/separator";
 
 export function SocialBar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [emailCopied, setEmailCopied] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   const socialLinks = [
     {
@@ -73,11 +65,10 @@ export function SocialBar() {
                         onClick={handleEmailClick}
                       >
                         <IconComponent
-                          className={`h-5 w-5 transition-colors ${
-                            emailCopied
-                              ? "text-green-500"
-                              : "text-muted-foreground hover:text-foreground"
-                          }`}
+                          className={`h-5 w-5 transition-colors ${emailCopied
+                            ? "text-green-500"
+                            : "text-muted-foreground hover:text-foreground"
+                            }`}
                         />
                         {emailCopied && (
                           <span className="absolute -top-0.5 -right-0.5 h-1.5 w-1.5 bg-green-500 rounded-full animate-ping" />
@@ -109,9 +100,9 @@ export function SocialBar() {
               );
             })}
 
-            <Separator orientation="vertical" className="h-6 mx-1" />
+            {/* <Separator orientation="vertical" className="h-6 mx-1" /> */}
 
-            {mounted ? (
+            {/* {mounted ? (
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button
@@ -146,7 +137,7 @@ export function SocialBar() {
               <div className="h-8 w-8 flex items-center justify-center">
                 <div className="h-5 w-5 bg-muted rounded-full animate-pulse" />
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

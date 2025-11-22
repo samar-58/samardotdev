@@ -51,14 +51,16 @@ const item = {
 };
 
 export const TechStack = () => {
+  const [isTouching, setIsTouching] = React.useState(false);
+
   return (
-    <section id="skills" className="py-12 border-t border-zinc-800">
+    <section id="skills" className="py-12 border-t border-border">
       <div className="px-4">
         <motion.h2
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-lg font-poppins font-semibold mb-8 text-zinc-300 flex items-center gap-2"
+          className="text-lg font-poppins font-semibold mb-8 text-muted-foreground flex items-center gap-2"
         >
           tech stack
         </motion.h2>
@@ -68,7 +70,10 @@ export const TechStack = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid grid-rows-2 grid-flow-col gap-4 overflow-x-auto pb-4 md:grid-flow-row md:grid-cols-6 md:grid-rows-[auto] md:gap-8 md:overflow-visible scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent"
+          className="grid grid-rows-2 grid-flow-col gap-4 overflow-x-auto pb-4 md:grid-flow-row md:grid-cols-6 md:grid-rows-[auto] md:gap-8 md:overflow-visible scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent"
+          onTouchStart={() => setIsTouching(true)}
+          onTouchEnd={() => setIsTouching(false)}
+          onTouchCancel={() => setIsTouching(false)}
         >
           {techStack.map((tech, index) => (
             <motion.div
@@ -76,13 +81,16 @@ export const TechStack = () => {
               variants={item}
               className="flex flex-col items-center gap-3 group min-w-[80px]"
             >
-              <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-900/50 border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+              <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-zinc-700 transition-colors">
                 <tech.icon
-                  className="w-6 h-6 transition-colors duration-300 md:text-zinc-400 md:group-hover:text-[var(--tech-color)] text-[var(--tech-color)]"
+                  className={`w-6 h-6 transition-colors duration-300 md:text-zinc-400 md:group-hover:text-[var(--tech-color)] ${isTouching
+                    ? "text-[var(--tech-color)]"
+                    : "text-zinc-400"
+                    }`}
                   style={{ "--tech-color": tech.color } as React.CSSProperties}
                 />
               </div>
-              <span className="text-xs text-zinc-300 md:text-zinc-500 font-poppins md:group-hover:text-zinc-300 transition-colors">
+              <span className="text-xs text-muted-foreground font-poppins md:group-hover:text-foreground transition-colors">
                 {tech.name}
               </span>
             </motion.div>
