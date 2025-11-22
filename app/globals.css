@@ -128,23 +128,23 @@ body {
     bottom: 0;
 }
 
-/* Terminal-style scrollbars */
+/* Minimal scrollbars */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--muted);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--muted-foreground);
-    border-radius: 4px;
+    background: #3f3f46;
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    opacity: 0.8;
+    background: #52525b;
 }
 
 /* Selection styling */
