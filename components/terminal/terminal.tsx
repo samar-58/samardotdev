@@ -149,7 +149,6 @@ export const Terminal = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 className="flex-1 bg-transparent outline-none text-zinc-200 placeholder-zinc-600"
                                 placeholder="type 'help' to start..."
-                                autoFocus
                             />
                         </form>
                     </div>

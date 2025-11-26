@@ -6,22 +6,22 @@ const Projects = () => {
       id: 1,
       title: "aryventory",
       description: "an app for managing inventory and sales of a retail store",
-      tech: ["react", "react native", "tailwind", "typescript" , "expo" , "sequelize" , "postgres" ,"express", "node.js" ],
+      tech: ["react", "react native", "tailwind", "typescript", "expo", "sequelize", "postgres", "express", "node.js"],
       link: "https://aryventory.com/"
     },
     {
       id: 2,
       title: "goschoolify",
       description: "a platform for managing schools.",
-      tech: ["react","react native", "typescript", "nest.js" , "prisma" , "postgres" , "node.js" ],
+      tech: ["react", "react native", "typescript", "nest.js", "prisma", "postgres", "node.js"],
       link: "https://goschoolify.com/",
     },
     {
       id: 3,
       title: "crowdmint",
       description: "a data labelling platform to earn rewards on the Solana blockchain.",
-      tech: ["Next.js", "typescript" , "prisma" , "postgres" , "node.js","solana","tailwind","aws S3" ],
-      link: "https://github.com/samar-58/crowdmint",
+      tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws S3"],
+      link: "https://crowdmint-vert.vercel.app/",
     },
   ];
 
