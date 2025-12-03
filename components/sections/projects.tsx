@@ -20,7 +20,7 @@ const Projects = () => {
       id: 3,
       title: "crowdmint",
       description: "a data labelling platform to earn rewards on the Solana blockchain.",
-      tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws S3"],
+      tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws"],
       link: "https://crowdmint-vert.vercel.app/",
     },
   ];

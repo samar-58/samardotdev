@@ -16,6 +16,9 @@ import {
   SiSequelize,
   SiNestjs,
   SiExpress,
+  SiSolidity,
+  SiRust,
+  SiEthereum,
 } from "react-icons/si";
 
 const techStack = [
@@ -32,6 +35,9 @@ const techStack = [
   { name: "Expo", icon: SiExpo, color: "#ffffff" },
   { name: "React Native", icon: SiReact, color: "#61DAFB" },
   { name: "Solana", icon: SiSolana, color: "#9945FF" },
+  { name: "Ethereum", icon: SiEthereum, color: "#627EEA" },
+  { name: "Solidity", icon: SiSolidity, color: "#363636" },
+  { name: "Rust", icon: SiRust, color: "#CE422B" },
   { name: "AWS", icon: SiAmazon, color: "#FF9900" },
 ];
 
