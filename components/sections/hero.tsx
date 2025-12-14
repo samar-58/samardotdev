@@ -45,6 +45,10 @@ export function Hero() {
                   <p className="font-poppins">
                     mealmeal - freelance frontend developer
                   </p>
+                  <p className="font-poppins">
+                    Upwork - Rising Talent
+                  </p>
+
                 </div>
               </div>
             </div>
