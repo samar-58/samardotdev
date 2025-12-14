@@ -39,7 +39,6 @@ export const Terminal = () => {
                     <div className="space-y-2">
                         <p>Hi! I&apos;m Samar, a fullstack developer.</p>
                         <p>I love building software and exploring new technologies.</p>
-                        <p>Currently working at Arysoft Global Services.</p>
                     </div>
                 );
                 break;
