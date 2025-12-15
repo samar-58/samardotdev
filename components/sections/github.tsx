@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
   ssr: false,
@@ -9,6 +10,7 @@ const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
 
 export function GithubSection({ username }: { username: string }) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -70,7 +72,7 @@ export function GithubSection({ username }: { username: string }) {
         >
           <GitHubCalendar
             username={username}
-            colorScheme="dark"
+            colorScheme={resolvedTheme === "light" ? "light" : "dark"}
             blockMargin={3}
             blockSize={12}
             fontSize={11}

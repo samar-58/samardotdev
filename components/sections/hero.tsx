@@ -40,7 +40,7 @@ export function Hero() {
                   <h2 className="font-poppins text-zinc-300 font-semibold">professional experience
                   </h2>
                   <p className="font-poppins">
-                    arysoft global services -fullstack software developer
+                    arysoft global services - fullstack software developer
                   </p>
                   <p className="font-poppins">
                     mealmeal - freelance frontend developer
@@ -53,7 +53,7 @@ export function Hero() {
               </div>
             </div>
 
-          {/* Profile Photo Section */}
+            {/* Profile Photo Section */}
             <div className="shrink-0 flex items-start">
               <div className="relative group aspect-square w-14 h-14">
                 <Image

@@ -87,11 +87,11 @@ export const TechStack = () => {
               variants={item}
               className="flex flex-col items-center gap-3 group min-w-[80px]"
             >
-              <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+              <div className="relative flex items-center justify-center w-12 h-12 rounded-xl bg-muted border border-border group-hover:border-muted-foreground/50 transition-colors">
                 <tech.icon
-                  className={`w-6 h-6 transition-colors duration-300 md:text-zinc-400 md:group-hover:text-[var(--tech-color)] ${isTouching
+                  className={`w-6 h-6 transition-colors duration-300 md:text-muted-foreground md:group-hover:text-[var(--tech-color)] ${isTouching
                     ? "text-[var(--tech-color)]"
-                    : "text-zinc-400"
+                    : "text-muted-foreground"
                     }`}
                   style={{ "--tech-color": tech.color } as React.CSSProperties}
                 />
