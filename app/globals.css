@@ -62,6 +62,20 @@
     --background: #09090b;
     --foreground: #ffffff;
     --border: #27272a;
+
+    /* Terminal colors for dark mode */
+    --terminal-bg: #09090b;
+    /* zinc-950 */
+    --terminal-border: #27272a;
+    /* zinc-800 */
+    --terminal-header-bg: rgba(24, 24, 27, 0.5);
+    /* zinc-900/50 */
+    --terminal-text: #d4d4d8;
+    /* zinc-300 */
+    --terminal-text-muted: #a1a1aa;
+    /* zinc-400 */
+    --terminal-input: #e4e4e7;
+    /* zinc-200 */
 }
 
 .light,
@@ -72,6 +86,14 @@
     --muted: rgba(0, 0, 0, 0.05);
     --muted-foreground: #525252;
     --color-edge: #d4d4d4;
+
+    /* Terminal colors for light mode */
+    --terminal-bg: #f5f5f5;
+    --terminal-border: #e5e5e5;
+    --terminal-header-bg: #eaeaea;
+    --terminal-text: #404040;
+    --terminal-text-muted: #737373;
+    --terminal-input: #171717;
 }
 
 * {

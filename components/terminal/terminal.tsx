@@ -111,34 +111,34 @@ export const Terminal = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-zinc-950 rounded-lg border border-zinc-800 overflow-hidden font-mono text-sm shadow-2xl"
+                    className="bg-[var(--terminal-bg)] rounded-lg border border-[var(--terminal-border)] overflow-hidden font-mono text-sm shadow-2xl"
                     onClick={() => inputRef.current?.focus()}
                 >
-                    <div className="flex items-center gap-2 px-4 py-2 bg-zinc-900/50 border-b border-zinc-800">
+                    <div className="flex items-center gap-2 px-4 py-2 bg-[var(--terminal-header-bg)] border-b border-[var(--terminal-border)]">
                         <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
                         <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
                         <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
-                        <span className="ml-2 text-xs text-zinc-500">guest@samar.dev: ~</span>
+                        <span className="ml-2 text-xs text-[var(--terminal-text-muted)]">guest@samar.dev: ~</span>
                     </div>
 
                     <div
                         ref={containerRef}
-                        className="p-4 h-[400px] overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-zinc-800 scrollbar-track-transparent"
+                        className="p-4 h-[400px] overflow-y-auto space-y-4 scrollbar-thin scrollbar-thumb-[var(--terminal-border)] scrollbar-track-transparent"
                     >
                         {history.map((entry, i) => (
                             <div key={i} className="space-y-2">
-                                <div className="flex items-center gap-2 text-zinc-400">
+                                <div className="flex items-center gap-2 text-[var(--terminal-text-muted)]">
                                     <span className="text-green-400">➜</span>
                                     <span className="text-blue-400">~</span>
                                     <span>{entry.command}</span>
                                 </div>
-                                <div className="text-zinc-300 pl-6 leading-relaxed">
+                                <div className="text-[var(--terminal-text)] pl-6 leading-relaxed">
                                     {entry.output}
                                 </div>
                             </div>
                         ))}
 
-                        <form onSubmit={handleSubmit} className="flex items-center gap-2 text-zinc-400">
+                        <form onSubmit={handleSubmit} className="flex items-center gap-2 text-[var(--terminal-text-muted)]">
                             <span className="text-green-400">➜</span>
                             <span className="text-blue-400">~</span>
                             <input
@@ -146,7 +146,7 @@ export const Terminal = () => {
                                 type="text"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
-                                className="flex-1 bg-transparent outline-none text-zinc-200 placeholder-zinc-600"
+                                className="flex-1 bg-transparent outline-none text-[var(--terminal-input)] placeholder:text-[var(--terminal-text-muted)]/50"
                                 placeholder="type 'help' to start..."
                             />
                         </form>

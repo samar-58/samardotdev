@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9">
+      <div className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors hover:bg-muted hover:text-foreground text-muted-foreground h-8 w-8 ml-1">
         <div className="h-4 w-4 animate-pulse bg-muted rounded" />
       </div>
     );
@@ -23,7 +23,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-      className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 w-9"
+      className="inline-flex items-center justify-center rounded-full text-sm font-medium transition-colors focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 hover:bg-muted hover:text-foreground text-muted-foreground h-8 w-8 ml-1"
       aria-label="Toggle theme"
       title={`Current theme: ${theme}. Click to switch to ${theme === "light" ? "dark" : "light"} mode`}
     >

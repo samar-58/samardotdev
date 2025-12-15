@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
 
 const navItems = [
     { name: "about", id: "about" },
@@ -35,6 +36,7 @@ export const Navigation = () => {
                         {item.name}
                     </button>
                 ))}
+                <ThemeToggle />
             </nav>
         </motion.div>
     );
