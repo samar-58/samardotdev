@@ -1,4 +1,8 @@
 import React from 'react';
+import Image from 'next/image';
+import aryventoryPreview from '@/assets/aryventory.png';
+import goschoolifyPreview from '@/assets/goschoolify.png';
+import crowdmintPreview from '@/assets/crowdmint.png';
 
 const Projects = () => {
   const projects = [
@@ -7,7 +11,8 @@ const Projects = () => {
       title: "aryventory",
       description: "an app for managing inventory and sales of a retail store",
       tech: ["react", "react native", "tailwind", "typescript", "expo", "sequelize", "postgres", "express", "node.js"],
-      link: "https://aryventory.com/"
+      link: "https://aryventory.com/",
+      preview: aryventoryPreview,
     },
     {
       id: 2,
@@ -15,6 +20,7 @@ const Projects = () => {
       description: "a platform for managing schools.",
       tech: ["react", "react native", "typescript", "nest.js", "prisma", "postgres", "node.js"],
       link: "https://goschoolify.com/",
+      preview: goschoolifyPreview,
     },
     {
       id: 3,
@@ -22,6 +28,7 @@ const Projects = () => {
       description: "a data labelling platform to earn rewards on the Solana blockchain.",
       tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws"],
       link: "https://crowdmint-vert.vercel.app/",
+      preview: crowdmintPreview,
     },
   ];
 
@@ -41,9 +48,20 @@ const Projects = () => {
               <div key={project.id}>
                 <div className="border-t border-edge">
                   <div className="px-4 py-4">
-                    <h3 className="text-xl font-poppins font-semibold mb-2 text-zinc-200">
+                    <h3 className="text-xl font-poppins font-semibold mb-3 text-zinc-200">
                       {project.title}
                     </h3>
+
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="block mb-4 group">
+                      <div className="relative overflow-hidden rounded-lg border border-edge">
+                        <Image
+                          src={project.preview}
+                          alt={`${project.title} preview`}
+                          className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                      </div>
+                    </a>
 
                     <p className="text-sm text-zinc-400 leading-relaxed mb-3 font-poppins">
                       {project.description}
