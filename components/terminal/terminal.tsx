@@ -32,13 +32,21 @@ export const Terminal = () => {
 
         switch (trimmedCmd) {
             case "help":
-                output = "Available commands: help, about, skills, projects, contact, clear";
+                output = "Available commands: help, about, tldr, skills, projects, contact, clear";
                 break;
             case "about":
                 output = (
                     <div className="space-y-2">
                         <p>Hi! I&apos;m Samar, a fullstack developer.</p>
                         <p>I love building software and exploring new technologies.</p>
+                    </div>
+                );
+                break;
+            case "tldr":
+                output = (
+                    <div className="space-y-2">
+                        <p>tldr; just a curious mind learning and building software for the fun of it.</p>
+                        <p>fullstack developer | React/Next.js enthusiast | exploring new tools and languages</p>
                     </div>
                 );
                 break;
