@@ -59,13 +59,13 @@
 }
 
 .dark {
-    --background: #09090b;
+    --background: #1f2937;
     --foreground: #ffffff;
     --border: #27272a;
 
     /* Terminal colors for dark mode */
-    --terminal-bg: #09090b;
-    /* zinc-950 */
+    --terminal-bg: #1f2937;
+    /* zinc-800 */
     --terminal-border: #27272a;
     /* zinc-800 */
     --terminal-header-bg: rgba(24, 24, 27, 0.5);
