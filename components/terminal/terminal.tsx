@@ -96,7 +96,7 @@ export const Terminal = () => {
 
     return (
         <section className="py-12 border-t border-border">
-            <div className="px-4">
+            <div>
                 <motion.h2
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
