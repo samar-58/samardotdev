@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import aryventoryPreview from '@/assets/aryventory.png';
-import goschoolifyPreview from '@/assets/goschoolify.png';
+import vestingPreview from '@/assets/vesting.png';
 import crowdmintPreview from '@/assets/crowdmint.png';
 
 const Projects = () => {
@@ -28,7 +28,7 @@ const Projects = () => {
       description: "a platform for vesting token on solana.",
       tech: ["solana", "rust", "anchor", "typescript", "next.js", "tailwind"],
       link: "https://vesting.samardev.xyz/",
-      preview: goschoolifyPreview,
+      preview: vestingPreview,
     },
   ];
 
