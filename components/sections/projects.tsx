@@ -8,6 +8,14 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
+      title: "crowdmint",
+      description: "a data labelling platform to earn rewards on the Solana blockchain.",
+      tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws"],
+      link: "https://crowdmint.samardev.xyz/",
+      preview: crowdmintPreview,
+    },
+    {
+      id: 2,
       title: "aryventory",
       description: "an app for managing inventory and sales of a retail store",
       tech: ["react", "react native", "tailwind", "typescript", "expo", "sequelize", "postgres", "express", "node.js"],
@@ -15,20 +23,12 @@ const Projects = () => {
       preview: aryventoryPreview,
     },
     {
-      id: 2,
-      title: "goschoolify",
-      description: "a platform for managing schools.",
-      tech: ["react", "react native", "typescript", "nest.js", "prisma", "postgres", "node.js"],
-      link: "https://goschoolify.com/",
-      preview: goschoolifyPreview,
-    },
-    {
       id: 3,
-      title: "crowdmint",
-      description: "a data labelling platform to earn rewards on the Solana blockchain.",
-      tech: ["Next.js", "typescript", "prisma", "postgres", "node.js", "solana", "tailwind", "aws"],
-      link: "https://crowdmint-vert.vercel.app/",
-      preview: crowdmintPreview,
+      title: "token vesting",
+      description: "a platform for vesting token on solana.",
+      tech: ["solana", "rust", "anchor", "typescript", "next.js", "tailwind"],
+      link: "https://vesting.samardev.xyz/",
+      preview: goschoolifyPreview,
     },
   ];
 

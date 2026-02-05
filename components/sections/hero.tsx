@@ -31,19 +31,16 @@ export function Hero() {
                 </h2>
                 <div className="text-xs text-zinc-400 leading-relaxed space-y-2">
                   <p className="font-poppins">
-                    tldr; just a curious mind learning and building software for the fun of it.
+                    tldr; just a curious mind learning and building with Blockchain, Solana, Rust, and Full Stack.
                   </p>
                   <p className="font-poppins">
-                    I love exploring new tools, languages, and ideas not just for a career, but because creating things through code genuinely excites me.
+                    I love exploring decentralized technologies and systems programming, creating software not just for a career, but because it genuinely excites me.
                   </p>
 
                   <h2 className="font-poppins text-zinc-300 font-semibold">professional experience
                   </h2>
                   <p className="font-poppins">
                     arysoft global services - fullstack software developer
-                  </p>
-                  <p className="font-poppins">
-                    mealmeal - freelance frontend developer
                   </p>
                   <p className="font-poppins">
                     Upwork - Rising Talent
@@ -90,10 +87,10 @@ export function Hero() {
                   </h2>
                   <div className="text-sm text-zinc-400 leading-relaxed space-y-4">
                     <p className="font-poppins">
-                      tldr; just a curious mind learning and building software for the fun of it.
+                      tldr; just a curious mind learning and building with Blockchain, Solana, Rust, and Full Stack.
                     </p>
                     <p className="font-poppins">
-                      I love exploring new tools, languages, and ideas not just for a career, but because creating things through code genuinely excites me.
+                      I love exploring decentralized technologies and systems programming, creating software not just for a career, but because it genuinely excites me.
                     </p>
                     <h2 className="font-poppins text-zinc-300 font-semibold" >professional experience
                     </h2>
