@@ -34,8 +34,6 @@ const Projects = () => {
 
   return (
     <>
-      {/* Spacer area removed */}
-
       {/* Projects Section */}
       <div className="screen-line-after border-x border-edge">
         <div className="px-4 py-4">

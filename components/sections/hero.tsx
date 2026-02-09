@@ -97,9 +97,6 @@ export function Hero() {
                     <p className="font-poppins">
                       arysoft global services -fullstack software developer
                     </p>
-                    <p className="font-poppins">
-                      mealmeal - freelance frontend developer
-                    </p>
                   </div>
                 </div>
               </div>
