@@ -1,58 +1,77 @@
 "use client";
 
+import { useEffect } from "react";
 import { SocialBar } from "@/components/site/social-bar";
 import { Hero } from "@/components/sections/hero";
+import { Experience } from "@/components/sections/experience";
 import Projects from "@/components/sections/projects";
 import { TechStack } from "@/components/sections/tech-stack";
-import { Terminal } from "@/components/terminal/terminal";
+import { GithubSection } from "@/components/sections/github";
+import { Contact } from "@/components/sections/contact";
 import { Navigation } from "@/components/site/navigation";
-import { motion } from "framer-motion";
 
 export default function Home() {
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div className="min-h-screen relative bg-background text-foreground selection:bg-muted-foreground selection:text-background">
+    <div className="min-h-screen relative grain">
+      {/* Cursor spotlight — desktop only */}
+      <div className="spotlight hidden md:block" />
+
       <Navigation />
 
-      <main className="max-w-screen overflow-x-hidden px-4 flex justify-center">
-        <div className="w-full max-w-3xl mx-auto space-y-0 py-12 sm:py-20">
-          <motion.div
-            id="about"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+      {/* Dot-grid side gutters — visible on desktop */}
+      <div className="hidden lg:block fixed inset-0 z-0 pointer-events-none">
+        <div className="h-full max-w-3xl mx-auto relative">
+          {/* Left gutter pattern */}
+          <div
+            className="absolute right-full top-0 bottom-0 w-[calc((100vw-768px)/2)]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+              opacity: 0.4,
+              maskImage:
+                "linear-gradient(to right, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
+            }}
+          />
+          {/* Right gutter pattern */}
+          <div
+            className="absolute left-full top-0 bottom-0 w-[calc((100vw-768px)/2)]"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, var(--border) 1px, transparent 1px)",
+              backgroundSize: "24px 24px",
+              opacity: 0.4,
+              maskImage:
+                "linear-gradient(to left, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to left, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
+            }}
+          />
+        </div>
+      </div>
+
+      <main className="relative z-10 max-w-screen overflow-x-hidden flex justify-center">
+        {/* Content column with side borders */}
+        <div className="w-full max-w-3xl mx-auto border-x border-[var(--border)] min-h-screen">
+          <div className="px-6 sm:px-10 py-20 sm:py-28">
             <Hero />
-          </motion.div>
-
-          <motion.div
-            id="terminal"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <Terminal />
-          </motion.div>
-
-          <motion.div
-            id="skills"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <TechStack />
-          </motion.div>
-
-          <motion.div
-            id="projects"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
+            <Experience />
             <Projects />
-          </motion.div>
+            <GithubSection username="samar-58" />
+            <TechStack />
+            <Contact />
+          </div>
         </div>
       </main>
 

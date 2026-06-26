@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Samar",
-  description: "Full‑stack Engineer — Next.js, React, TypeScript, React Native,Node.js",
+  title: "Samar — Full Stack Developer",
+  description:
+    "Full stack developer building across web, mobile, blockchain, and AI. TypeScript, Rust, Solidity.",
   icons: {
     icon: "/samar_pfp.jpeg",
     apple: "/samar_pfp.jpeg",
@@ -26,18 +26,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        {/* put this in the <head> */}
-        {process.env.NODE_ENV === "development" && (
-          <Script
-            src="//unpkg.com/react-grab/dist/index.global.js"
-            crossOrigin="anonymous"
-            strategy="beforeInteractive"
-            data-enabled="true"
-          />
-        )}
-        {/* rest of your scripts go under */}
-      </head>
       <body className="antialiased min-h-screen bg-background text-foreground">
         <ThemeProvider>
           <main className="min-h-screen">{children}</main>

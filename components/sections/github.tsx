@@ -3,9 +3,13 @@
 import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import { useTheme } from "next-themes";
+import { motion } from "framer-motion";
 
 const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
   ssr: false,
+  loading: () => (
+    <div className="h-32 rounded-lg bg-[var(--surface)] animate-pulse" />
+  ),
 });
 
 export function GithubSection({ username }: { username: string }) {
@@ -62,23 +66,28 @@ export function GithubSection({ username }: { username: string }) {
   }, []);
 
   return (
-    <section className="screen-line-before screen-line-after border-x border-edge" id="github" aria-labelledby="github-title">
-      <div className="screen-line-after px-4">
+    <motion.section
+      id="pow"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+      className="py-16 border-t border-[var(--border)]"
+    >
+      <h2 className="section-label">proof of work</h2>
+
+      <div
+        ref={scrollRef}
+        className="overflow-x-auto rounded-xl p-4 bg-[var(--surface)] border border-[var(--border)]"
+      >
+        <GitHubCalendar
+          username={username}
+          colorScheme={resolvedTheme === "light" ? "light" : "dark"}
+          blockMargin={3}
+          blockSize={12}
+          fontSize={11}
+        />
       </div>
-      <div className="p-4">
-        <div
-          ref={scrollRef}
-          className="overflow-x-auto bg-[radial-gradient(var(--pattern-foreground)_1px,transparent_0)] bg-[length:10px_10px] bg-center [--pattern-foreground:var(--color-white)]/5 rounded-lg p-4"
-        >
-          <GitHubCalendar
-            username={username}
-            colorScheme={resolvedTheme === "light" ? "light" : "dark"}
-            blockMargin={3}
-            blockSize={12}
-            fontSize={11}
-          />
-        </div>
-      </div>
-    </section>
+    </motion.section>
   );
 }

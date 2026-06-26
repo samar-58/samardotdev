@@ -1,226 +1,215 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-    --font-sans:
-        "Manrope", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-        Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --font-mono:
-        "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-        "Liberation Mono", "Courier New", monospace;
-    --color-edge: #333333;
-    --color-muted: #5a5a5a;
-    --color-muted-foreground: #b3b3b3;
-    --color-accent: #0ea5e9;
-    --color-accent-foreground: #e0f2fe;
-    --color-sidebar-ring:
-        var(--sidebar-ring);
-    --color-sidebar-border:
-        var(--sidebar-border);
-    --color-sidebar-accent-foreground:
-        var(--sidebar-accent-foreground);
-    --color-sidebar-accent:
-        var(--sidebar-accent);
-    --color-sidebar-primary-foreground:
-        var(--sidebar-primary-foreground);
-    --color-sidebar-primary:
-        var(--sidebar-primary);
-    --color-sidebar-foreground:
-        var(--sidebar-foreground);
-    --color-sidebar:
-        var(--sidebar);
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
+  --color-edge: #2e2c28;
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
 }
 
+/* ── Warm Charcoal (default / dark) ── */
 :root {
-    --background: #09090b;
-    --foreground: #ffffff;
-    --border: #27272a;
-    --muted: rgba(74, 74, 74, 0.4);
-    --muted-foreground: #b3b3b3;
-    --sidebar:
-        hsl(0 0% 98%);
-    --sidebar-foreground:
-        hsl(240 5.3% 26.1%);
-    --sidebar-primary:
-        hsl(240 5.9% 10%);
-    --sidebar-primary-foreground:
-        hsl(0 0% 98%);
-    --sidebar-accent:
-        hsl(240 4.8% 95.9%);
-    --sidebar-accent-foreground:
-        hsl(240 5.9% 10%);
-    --sidebar-border:
-        hsl(220 13% 91%);
-    --sidebar-ring:
-        hsl(217.2 91.2% 59.8%);
+  --background: #111110;
+  --foreground: #e8e6e0;
+  --surface: #1a1918;
+  --border: #2e2c28;
+  --muted: rgba(74, 70, 60, 0.35);
+  --muted-foreground: #8a8880;
+  --accent: #e4a853;
+  --spotlight-color: rgba(228, 168, 83, 0.06);
+  --sidebar: hsl(0 0% 98%);
+  --sidebar-foreground: hsl(240 5.3% 26.1%);
+  --sidebar-primary: hsl(240 5.9% 10%);
+  --sidebar-primary-foreground: hsl(0 0% 98%);
+  --sidebar-accent: hsl(240 4.8% 95.9%);
+  --sidebar-accent-foreground: hsl(240 5.9% 10%);
+  --sidebar-border: hsl(220 13% 91%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
 .dark {
-    --background: #09090b;
-    --foreground: #ffffff;
-    --border: #27272a;
-
-    /* Terminal colors for dark mode */
-    --terminal-bg: #09090b;
-    /* zinc-950 */
-    --terminal-border: #27272a;
-    /* zinc-800 */
-    --terminal-header-bg: rgba(24, 24, 27, 0.5);
-    /* zinc-900/50 */
-    --terminal-text: #d4d4d8;
-    /* zinc-300 */
-    --terminal-text-muted: #a1a1aa;
-    /* zinc-400 */
-    --terminal-input: #e4e4e7;
-    /* zinc-200 */
+  --background: #111110;
+  --foreground: #e8e6e0;
+  --surface: #1a1918;
+  --border: #2e2c28;
+  --muted: rgba(74, 70, 60, 0.35);
+  --muted-foreground: #8a8880;
+  --accent: #e4a853;
+  --spotlight-color: rgba(228, 168, 83, 0.06);
+  --sidebar: hsl(240 5.9% 10%);
+  --sidebar-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-primary: hsl(224.3 76.3% 48%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(240 3.7% 15.9%);
+  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
+  --sidebar-border: hsl(240 3.7% 15.9%);
+  --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
+/* ── Warm Cream (light) ── */
 .light,
 [data-theme="light"] {
-    --background: #fafafa;
-    --foreground: #0a0a0a;
-    --border: #e5e5e5;
-    --muted: rgba(0, 0, 0, 0.05);
-    --muted-foreground: #525252;
-    --color-edge: #d4d4d4;
-
-    /* Terminal colors for light mode */
-    --terminal-bg: #f5f5f5;
-    --terminal-border: #e5e5e5;
-    --terminal-header-bg: #eaeaea;
-    --terminal-text: #404040;
-    --terminal-text-muted: #737373;
-    --terminal-input: #171717;
+  --background: #f5f2ed;
+  --foreground: #1c1b18;
+  --surface: #eae6df;
+  --border: #d4d0c8;
+  --muted: rgba(0, 0, 0, 0.04);
+  --muted-foreground: #6e6c64;
+  --accent: #c47c1d;
+  --spotlight-color: rgba(196, 124, 29, 0.04);
+  --color-edge: #d4d0c8;
 }
 
+/* ── Base ── */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    background: var(--background);
-    color: var(--foreground);
+  background: var(--background);
+  color: var(--foreground);
 }
 
 body {
-    font-family: var(--font-sans);
-    background: var(--background);
-    color: var(--foreground);
-    line-height: 1.6;
-    font-weight: 400;
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.border-edge {
-    border-color: var(--border);
+/* ── Section label — monospace comment style ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+  margin-bottom: 2rem;
 }
 
-.text-muted-foreground {
-    color: var(--muted-foreground);
+.section-label::before {
+  content: "// ";
+  color: var(--accent);
 }
 
-.bg-muted {
-    background-color: var(--muted);
+/* ── Animated underline for links ── */
+.link-hover {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.screen-line-before::before,
-.screen-line-after::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: var(--color-edge);
-    z-index: 1;
+.link-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s ease;
 }
 
-.screen-line-before {
-    position: relative;
+.link-hover:hover::after {
+  width: 100%;
 }
 
-.screen-line-before::before {
-    top: 0;
+/* ── Project card ── */
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.screen-line-after {
-    position: relative;
+.project-card:hover {
+  border-left-color: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
-.screen-line-after::after {
-    bottom: 0;
+/* ── Noise grain overlay ── */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
-/* Minimal scrollbars */
+/* ── Cursor spotlight ── */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--spotlight-color),
+    transparent 40%
+  );
+  transition: opacity 0.3s ease;
+}
+
+/* ── Scrollbar ── */
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 4px;
+  width: 6px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--muted-foreground);
-    border-radius: 3px;
+  background: var(--muted-foreground);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--foreground);
+  background: var(--foreground);
 }
 
-/* Selection styling */
+/* ── Selection ── */
 ::selection {
-    background: var(--muted-foreground);
-    color: var(--background);
-}
-
-/* Theme-aware text colors for hero and projects sections */
-[data-theme="light"] .text-zinc-200 {
-    color: #0a0a0a !important;
-}
-
-[data-theme="light"] .text-zinc-300 {
-    color: #525252 !important;
-}
-
-[data-theme="light"] .text-zinc-400 {
-    color: #737373 !important;
-}
-
-[data-theme="light"] .text-zinc-500 {
-    color: #a3a3a3 !important;
-}
-
-.dark {
-    --sidebar:
-        hsl(240 5.9% 10%);
-    --sidebar-foreground:
-        hsl(240 4.8% 95.9%);
-    --sidebar-primary:
-        hsl(224.3 76.3% 48%);
-    --sidebar-primary-foreground:
-        hsl(0 0% 100%);
-    --sidebar-accent:
-        hsl(240 3.7% 15.9%);
-    --sidebar-accent-foreground:
-        hsl(240 4.8% 95.9%);
-    --sidebar-border:
-        hsl(240 3.7% 15.9%);
-    --sidebar-ring:
-        hsl(217.2 91.2% 59.8%);
+  background: var(--accent);
+  color: var(--background);
 }
 
 @layer base {
-    * {
-        border-color: var(--border);
-        outline-color: var(--border);
-    }
+  * {
+    border-color: var(--border);
+    outline-color: var(--border);
+  }
 
-    body {
-        background-color: var(--background);
-        color: var(--foreground);
-    }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
 }

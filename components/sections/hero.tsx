@@ -1,126 +1,123 @@
-"use client"
+"use client";
+
 import Image from "next/image";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { motion } from "framer-motion";
 import samarPfp from "../../assets/samar_pfp.jpeg";
 
 export function Hero() {
-  const isMobile = useIsMobile();
-
   return (
-    <>
-      {/* Spacer area removed */}
+    <section id="home" className="pb-16">
+      {/* Name + Photo */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-start justify-between gap-6"
+      >
+        <div>
+          <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[var(--foreground)]">
+            Samar
+          </h1>
+          <p className="text-base text-[var(--muted-foreground)] mt-1">
+            Full Stack Developer
+          </p>
+        </div>
 
-      {/* Enhanced Profile Header with Avatar and About Section */}
-      <div className="screen-line-after border-x border-edge">
-        {isMobile ? (
-          // Mobile Layout: Photo on right, content on left
-          <div className="flex flex-row px-4 py-4">
-            {/* Content Section */}
-            <div className="flex-1 flex flex-col pr-4">
-              {/* Name and Title */}
-              <div className="pb-3">
-                <h1 className="text-2xl font-poppins font-semibold mb-2 text-zinc-200">
-                  hi, samar here
-                </h1>
-              </div>
+        <div className="relative w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-full overflow-hidden ring-2 ring-[var(--border)]">
+          <Image
+            src={samarPfp}
+            alt="Samar"
+            fill
+            sizes="64px"
+            className="object-cover"
+            priority
+          />
+        </div>
+      </motion.div>
 
-              {/* About Section */}
-              <div className="border-t border-edge pt-3">
-                <h2 className="text-sm font-poppins font-semibold mb-2 text-zinc-300 flex items-center gap-2">
-                  about
-                </h2>
-                <div className="text-xs text-zinc-400 leading-relaxed space-y-2">
-                  <p className="font-poppins">
-                    tldr; just a curious mind learning and building with Blockchain, Solana, Rust, and Full Stack.
-                  </p>
-                  <p className="font-poppins">
-                    I love exploring decentralized technologies and systems programming, creating software not just for a career, but because it genuinely excites me.
-                  </p>
+      {/* Status badge */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="mt-5"
+      >
+        <span className="inline-flex items-center gap-2 text-xs text-[var(--muted-foreground)] border border-[var(--border)] rounded-full px-3 py-1.5">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          open to opportunities
+        </span>
+      </motion.div>
 
-                  <h2 className="font-poppins text-zinc-300 font-semibold">professional experience
-                  </h2>
-                  <p className="font-poppins">
-                    arysoft global services - fullstack software developer
-                  </p>
-                  <p className="font-poppins">
-                    Upwork - Rising Talent
-                  </p>
+      {/* Bio */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="mt-8 space-y-4 text-sm text-[var(--muted-foreground)] leading-relaxed"
+      >
+        <p>
+          i&apos;m samar, and i like building software across the full stack —
+          web, mobile, blockchain, and AI.
+        </p>
+        <p>
+          i work with TypeScript, Rust, and Solidity, and i care about the small
+          details that make a product feel right.
+        </p>
+        <p>
+          if you&apos;re building something meaningful, i&apos;d love to help.
+        </p>
+      </motion.div>
 
-                </div>
-              </div>
-            </div>
-
-            {/* Profile Photo Section */}
-            <div className="shrink-0 flex items-start">
-              <div className="relative group aspect-square w-14 h-14">
-                <Image
-                  src={samarPfp}
-                  alt="Samar's avatar"
-                  fill
-                  sizes="56px"
-                  className="rounded-full select-none object-cover shadow-lg shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"
-                  priority
-                />
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          // Desktop Layout: Original layout with centered photo
-          <div className="flex flex-row">
-            {/* Content Section */}
-            <div className="flex-1 flex flex-col">
-              {/* Name and Title */}
-              <div className=" border-edge border-t-0">
-                <div className="px-4 py-3 sm:py-4">
-                  <h1 className="text-3xl sm:text-4xl font-poppins font-semibold mb-2 text-zinc-200">
-                    hi, samar here
-                  </h1>
-                </div>
-              </div>
-
-              {/* About Section */}
-              <div className="border-t border-edge">
-                <div className="px-4 py-4">
-                  <h2 className="text-lg font-poppins font-semibold mb-3 text-zinc-300 flex items-center gap-2">
-                    about
-                  </h2>
-                  <div className="text-sm text-zinc-400 leading-relaxed space-y-4">
-                    <p className="font-poppins">
-                      tldr; just a curious mind learning and building with Blockchain, Solana, Rust, and Full Stack.
-                    </p>
-                    <p className="font-poppins">
-                      I love exploring decentralized technologies and systems programming, creating software not just for a career, but because it genuinely excites me.
-                    </p>
-                    <h2 className="font-poppins text-zinc-300 font-semibold" >professional experience
-                    </h2>
-                    <p className="font-poppins">
-                      arysoft global services -fullstack software developer
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Profile Photo Section */}
-            <div className="shrink-0 border-l border-edge relative w-48">
-              <div className="mx-[2px] my-[2px] relative flex justify-center p-4">
-                <div className="relative group aspect-square w-44 h-44">
-                  <Image
-                    src={samarPfp}
-                    alt="Samar's avatar"
-                    fill
-                    sizes="176px"
-                    className="rounded-full select-none object-cover shadow-xl shadow-zinc-900/60 transition-all duration-300 group-hover:scale-105"
-                    priority
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </>
+      {/* Contact links — text style, no buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+        className="mt-8 space-y-2.5"
+      >
+        <div>
+          <a
+            href="mailto:sayedsamar58@gmail.com"
+            className="group inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
+          >
+            <span>say hello</span>
+            <span className="inline-block text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-0.5">
+              →
+            </span>
+            <span className="font-mono text-xs">sayedsamar58@gmail.com</span>
+          </a>
+        </div>
+        <div className="flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] flex-wrap">
+          <span>find me on</span>
+          <span className="text-[var(--accent)]">→</span>
+          <a
+            href="https://x.com/samardotdev"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-hover hover:text-[var(--foreground)] transition-colors"
+          >
+            twitter
+          </a>
+          <span className="text-[var(--border)]">·</span>
+          <a
+            href="https://www.linkedin.com/in/samar-sayyad-2641722bb/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-hover hover:text-[var(--foreground)] transition-colors"
+          >
+            linkedin
+          </a>
+          <span className="text-[var(--border)]">·</span>
+          <a
+            href="https://github.com/samar-58"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-hover hover:text-[var(--foreground)] transition-colors"
+          >
+            github
+          </a>
+        </div>
+      </motion.div>
+    </section>
   );
 }
