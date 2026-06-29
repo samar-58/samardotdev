@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+
 import { SocialBar } from "@/components/site/social-bar";
 import { Hero } from "@/components/sections/hero";
 import { Experience } from "@/components/sections/experience";
@@ -11,19 +11,11 @@ import { Contact } from "@/components/sections/contact";
 import { Navigation } from "@/components/site/navigation";
 
 export default function Home() {
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      document.documentElement.style.setProperty("--mouse-x", `${e.clientX}px`);
-      document.documentElement.style.setProperty("--mouse-y", `${e.clientY}px`);
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+
 
   return (
     <div className="min-h-screen relative grain">
-      {/* Cursor spotlight — desktop only */}
-      <div className="spotlight hidden md:block" />
+
 
       <Navigation />
 
