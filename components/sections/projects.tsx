@@ -1,106 +1,93 @@
-"use client";
+import Image from "next/image";
+import { ArrowUpRight, Github } from "lucide-react";
+import { projects, siteConfig } from "@/lib/data";
 
-import { motion } from "framer-motion";
-import { projects } from "@/lib/data";
-
-export default function Projects() {
+export function Projects() {
   return (
-    <motion.section
-      id="projects"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="py-16 border-t border-[var(--border)]"
-    >
-      <h2 className="section-label">projects</h2>
+    <section id="projects" className="py-14 border-t border-border">
+      <div className="flex items-baseline justify-between gap-4 mb-8">
+        <h2 className="section-label">projects</h2>
+        <p className="font-mono text-xs text-muted-foreground tabular-nums">
+          {projects.length}
+        </p>
+      </div>
 
-      <div className="space-y-4">
+      <ul className="divide-y divide-border">
         {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.08 }}
-            className="project-card group"
-          >
-            {/* Title row */}
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2">
-              <h3 className="text-base font-semibold text-[var(--foreground)]">
-                {project.title}
-              </h3>
+          <li key={project.title} className="group py-6 first:pt-0 last:pb-0">
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-[10px] text-muted-foreground tabular-nums pt-1 shrink-0">
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-              <div className="flex items-center gap-3 shrink-0">
-                {project.link && (
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-1 text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                  >
-                    <span className="text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">
-                      →
-                    </span>
-                    site
-                  </a>
-                )}
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/link inline-flex items-center gap-1 text-xs text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-                  >
-                    <span className="text-[var(--accent)] transition-transform duration-200 group-hover/link:translate-x-0.5">
-                      →
-                    </span>
-                    github
-                  </a>
+              <div className="min-w-0 flex-1">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="font-display text-xl leading-snug text-foreground">
+                    {project.title}
+                  </h3>
+
+                  <div className="flex items-center gap-4 shrink-0">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground hover:text-accent transition-colors"
+                      >
+                        site
+                        <ArrowUpRight className="w-3 h-3" />
+                      </a>
+                    )}
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-mono text-[11px] text-muted-foreground hover:text-accent transition-colors"
+                      >
+                        <Github className="w-3 h-3" />
+                        code
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-prose">
+                  {project.description}
+                </p>
+
+                <p className="mt-3 font-mono text-[10px] text-muted-foreground">
+                  {project.tech.join("  ·  ")}
+                </p>
+
+                {project.image && (
+                  <div className="relative mt-4 aspect-[16/10] w-full overflow-hidden rounded-lg border border-border bg-surface">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} interface`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 640px"
+                      placeholder="blur"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    />
+                  </div>
                 )}
               </div>
             </div>
-
-            {/* Tech badges */}
-            <div className="flex flex-wrap gap-1.5 mb-2.5">
-              {project.tech.map((t, i) => (
-                <span
-                  key={i}
-                  className="font-mono text-[10px] text-[var(--muted-foreground)] bg-[var(--muted)] border border-[var(--border)] rounded px-1.5 py-0.5"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-
-            {/* Description */}
-            <p className="text-sm text-[var(--muted-foreground)] leading-relaxed">
-              {project.description}
-            </p>
-          </motion.div>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      {/* View more */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.4, delay: 0.3 }}
-        className="mt-8"
+      <a
+        href={siteConfig.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mt-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
       >
-        <a
-          href="https://github.com/samar-58"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-        >
-          view more
-          <span className="text-[var(--accent)] transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
-        </a>
-      </motion.div>
-    </motion.section>
+        <Github className="w-3.5 h-3.5 text-accent" />
+        more on github
+        <ArrowUpRight className="w-3 h-3 text-accent transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+      </a>
+    </section>
   );
 }

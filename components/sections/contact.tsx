@@ -1,72 +1,56 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { siteConfig, socials } from "@/lib/data";
+import { SocialIcon } from "@/components/site/social-icon";
 
 export function Contact() {
-  const links = [
-    { label: "email", href: "mailto:sayedsamar58@gmail.com" },
-    { label: "twitter", href: "https://x.com/samardotdev" },
-    {
-      label: "linkedin",
-      href: "https://www.linkedin.com/in/samar-sayyad-2641722bb/",
-    },
-    { label: "github", href: "https://github.com/samar-58" },
-  ];
-
   return (
-    <motion.section
-      id="contact"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="py-16 border-t border-[var(--border)]"
-    >
-      <h2 className="section-label">contact</h2>
+    <section id="contact" className="py-14 border-t border-border">
+      <h2 className="section-label mb-8 block">contact</h2>
 
-      <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-6">
+      <p className="font-display text-2xl sm:text-3xl leading-snug text-foreground max-w-prose">
         have an idea that keeps you awake? let&apos;s talk about it.
       </p>
 
-      <div className="flex flex-wrap gap-x-4 gap-y-2">
-        {links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-            rel={
-              link.href.startsWith("mailto:")
-                ? undefined
-                : "noopener noreferrer"
-            }
-            className="group inline-flex items-center gap-1.5 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-colors"
-          >
-            <span className="text-[var(--accent)] transition-transform duration-200 group-hover:translate-x-0.5">
-              →
-            </span>
-            <span className="link-hover">{link.label}</span>
-          </a>
-        ))}
+      <a
+        href={`mailto:${siteConfig.email}`}
+        className="mt-6 inline-block font-mono text-sm text-accent link-hover"
+      >
+        {siteConfig.email}
+      </a>
+
+      <div className="mt-8 flex flex-wrap gap-x-5 gap-y-3">
+        {socials
+          .filter((social) => social.icon !== "mail")
+          .map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <SocialIcon name={social.icon} className="w-3.5 h-3.5" />
+              <span className="link-hover">{social.label}</span>
+            </a>
+          ))}
       </div>
 
-      {/* Footer */}
-      <div className="mt-16 pt-8 border-t border-[var(--border)]">
-        <p className="text-xs text-[var(--muted-foreground)] leading-relaxed">
+      <footer className="mt-16 pt-8 border-t border-border">
+        <p className="text-xs text-muted-foreground leading-relaxed max-w-prose">
           if you made it this far, thank you. i&apos;m still learning, still
           building, and trying to do honest work that helps real people.
         </p>
-        <p className="text-xs text-[var(--muted-foreground)] mt-4">
-          © 2026{" "}
+        <p className="mt-4 font-mono text-[11px] text-muted-foreground">
+          © {new Date().getFullYear()}{" "}
           <a
-            href="https://x.com/samardotdev"
+            href={siteConfig.twitter}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--accent)] hover:text-[var(--foreground)] transition-colors"
+            className="text-accent hover:text-foreground transition-colors"
           >
             samardotdev
           </a>
         </p>
-      </div>
-    </motion.section>
+      </footer>
+    </section>
   );
 }

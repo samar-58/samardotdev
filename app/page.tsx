@@ -1,73 +1,33 @@
-"use client";
-
-
-import { SocialBar } from "@/components/site/social-bar";
-import { Hero } from "@/components/sections/hero";
-import { Experience } from "@/components/sections/experience";
-import Projects from "@/components/sections/projects";
-import { TechStack } from "@/components/sections/tech-stack";
-import { GithubSection } from "@/components/sections/github";
-import { Contact } from "@/components/sections/contact";
 import { Navigation } from "@/components/site/navigation";
+import { Hero } from "@/components/sections/hero";
+import { Contributions } from "@/components/sections/contributions";
+import { Projects } from "@/components/sections/projects";
+import { Experience } from "@/components/sections/experience";
+import { TechStack } from "@/components/sections/tech-stack";
+import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
-
-
   return (
-    <div className="min-h-screen relative grain">
+    <div className="grain min-h-screen overflow-x-clip">
+      <a
+        href="#home"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:text-sm"
+      >
+        Skip to content
+      </a>
 
+      <div className="mx-auto flex w-full max-w-5xl flex-col px-6 sm:px-8 lg:flex-row lg:gap-16 lg:px-10">
+        <Navigation />
 
-      <Navigation />
-
-      {/* Dot-grid side gutters — visible on desktop */}
-      <div className="hidden lg:block fixed inset-0 z-0 pointer-events-none">
-        <div className="h-full max-w-3xl mx-auto relative">
-          {/* Left gutter pattern */}
-          <div
-            className="absolute right-full top-0 bottom-0 w-[calc((100vw-768px)/2)]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, var(--border) 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-              opacity: 0.4,
-              maskImage:
-                "linear-gradient(to right, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to right, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
-            }}
-          />
-          {/* Right gutter pattern */}
-          <div
-            className="absolute left-full top-0 bottom-0 w-[calc((100vw-768px)/2)]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle, var(--border) 1px, transparent 1px)",
-              backgroundSize: "24px 24px",
-              opacity: 0.4,
-              maskImage:
-                "linear-gradient(to left, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
-              WebkitMaskImage:
-                "linear-gradient(to left, transparent, transparent 40%, rgba(0,0,0,0.5) 100%)",
-            }}
-          />
-        </div>
+        <main className="w-full min-w-0 py-16 lg:max-w-2xl lg:py-24">
+          <Hero />
+          <Contributions />
+          <Projects />
+          <Experience />
+          <TechStack />
+          <Contact />
+        </main>
       </div>
-
-      <main className="relative z-10 max-w-screen overflow-x-hidden flex justify-center">
-        {/* Content column with side borders */}
-        <div className="w-full max-w-3xl mx-auto border-x border-[var(--border)] min-h-screen">
-          <div className="px-6 sm:px-10 py-20 sm:py-28">
-            <Hero />
-            <Experience />
-            <Projects />
-            <GithubSection username="samar-58" />
-            <TechStack />
-            <Contact />
-          </div>
-        </div>
-      </main>
-
-      <SocialBar />
     </div>
   );
 }

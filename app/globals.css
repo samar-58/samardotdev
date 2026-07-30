@@ -1,85 +1,58 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans:
-    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  --font-mono:
-    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    monospace;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --color-surface: var(--surface);
-  --color-accent: var(--accent);
-  --color-edge: #2e2c28;
+  --color-border: var(--border);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
+  --color-accent: var(--accent);
 }
 
-/* ── Warm Charcoal (default / dark) ── */
+/* ── Paper (default / light) ──────────────────────────────── */
 :root {
-  --background: #111110;
-  --foreground: #e8e6e0;
-  --surface: #1a1918;
-  --border: #2e2c28;
-  --muted: rgba(74, 70, 60, 0.35);
-  --muted-foreground: #8a8880;
-  --accent: #e4a853;
-  --spotlight-color: rgba(228, 168, 83, 0.06);
-  --sidebar: hsl(0 0% 98%);
-  --sidebar-foreground: hsl(240 5.3% 26.1%);
-  --sidebar-primary: hsl(240 5.9% 10%);
-  --sidebar-primary-foreground: hsl(0 0% 98%);
-  --sidebar-accent: hsl(240 4.8% 95.9%);
-  --sidebar-accent-foreground: hsl(240 5.9% 10%);
-  --sidebar-border: hsl(220 13% 91%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+  --background: #faf9f7;
+  --surface: #f2f0eb;
+  --foreground: #16150f;
+  --muted: rgba(22, 21, 15, 0.04);
+  --muted-foreground: #6b6862;
+  --border: #e4e1da;
+  --accent: #b45309;
+
+  /* contribution graph ramp — light */
+  --graph-0: #eae7e0;
+  --graph-1: #f6d9a8;
+  --graph-2: #eeb865;
+  --graph-3: #d98f24;
+  --graph-4: #b45309;
 }
 
+/* ── Ink (dark) ───────────────────────────────────────────── */
 .dark {
-  --background: #111110;
-  --foreground: #e8e6e0;
-  --surface: #1a1918;
-  --border: #2e2c28;
-  --muted: rgba(74, 70, 60, 0.35);
-  --muted-foreground: #8a8880;
+  --background: #100f0d;
+  --surface: #1a1917;
+  --foreground: #eae7e0;
+  --muted: rgba(234, 231, 224, 0.06);
+  --muted-foreground: #8c8880;
+  --border: #2a2825;
   --accent: #e4a853;
-  --spotlight-color: rgba(228, 168, 83, 0.06);
-  --sidebar: hsl(240 5.9% 10%);
-  --sidebar-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-primary: hsl(224.3 76.3% 48%);
-  --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 3.7% 15.9%);
-  --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-  --sidebar-border: hsl(240 3.7% 15.9%);
-  --sidebar-ring: hsl(217.2 91.2% 59.8%);
+
+  /* contribution graph ramp — dark */
+  --graph-0: #1e1c1a;
+  --graph-1: #4a3617;
+  --graph-2: #7a5518;
+  --graph-3: #b8811f;
+  --graph-4: #e4a853;
 }
 
-/* ── Warm Cream (light) ── */
-.light,
-[data-theme="light"] {
-  --background: #f5f2ed;
-  --foreground: #1c1b18;
-  --surface: #eae6df;
-  --border: #d4d0c8;
-  --muted: rgba(0, 0, 0, 0.04);
-  --muted-foreground: #6e6c64;
-  --accent: #c47c1d;
-  --spotlight-color: rgba(196, 124, 29, 0.04);
-  --color-edge: #d4d0c8;
-}
-
-/* ── Base ── */
+/* ── Base ─────────────────────────────────────────────────── */
 * {
   box-sizing: border-box;
 }
@@ -87,33 +60,41 @@
 html {
   background: var(--background);
   color: var(--foreground);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-sans);
   background: var(--background);
   color: var(--foreground);
-  line-height: 1.6;
+  line-height: 1.65;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ── Section label — monospace comment style ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Section label — mono, uppercase, hairline ─────────────── */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   color: var(--muted-foreground);
-  margin-bottom: 2rem;
 }
 
-.section-label::before {
-  content: "// ";
-  color: var(--accent);
-}
-
-/* ── Animated underline for links ── */
+/* ── Animated underline for links ─────────────────────────── */
 .link-hover {
   position: relative;
   text-decoration: none;
@@ -135,49 +116,47 @@ body {
   width: 100%;
 }
 
-/* ── Project card ── */
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-left: 2px solid transparent;
-  border-radius: 0.75rem;
-  padding: 1.25rem 1.5rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  border-left-color: var(--accent);
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 10%, transparent);
-}
-
-/* ── Noise grain overlay ── */
+/* ── Paper grain ──────────────────────────────────────────── */
 .grain::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 9998;
   pointer-events: none;
-  opacity: 0.028;
+  opacity: 0.035;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* ── Cursor spotlight ── */
-.spotlight {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    var(--spotlight-color),
-    transparent 40%
-  );
-  transition: opacity 0.3s ease;
+.dark .grain::before {
+  opacity: 0.025;
 }
 
-/* ── Scrollbar ── */
+/* ── CSS-only entrance reveal (no client JS) ──────────────── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Focus ────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 6px;
   height: 4px;
@@ -188,15 +167,15 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--muted-foreground);
+  background: var(--border);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--foreground);
+  background: var(--muted-foreground);
 }
 
-/* ── Selection ── */
+/* ── Selection ────────────────────────────────────────────── */
 ::selection {
   background: var(--accent);
   color: var(--background);
@@ -205,11 +184,5 @@ body {
 @layer base {
   * {
     border-color: var(--border);
-    outline-color: var(--border);
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
   }
 }

@@ -1,53 +1,38 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
-import {
-  House,
-  Briefcase,
-  FolderGit2,
-  GitBranch,
-  Layers,
-  Mail,
-} from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { SocialIcon } from "@/components/site/social-icon";
+import { socials } from "@/lib/data";
 
-const navItems = [
-  { name: "home", id: "home", icon: House },
-  { name: "experience", id: "experience", icon: Briefcase },
-  { name: "projects", id: "projects", icon: FolderGit2 },
-  { name: "proof of work", id: "pow", icon: GitBranch },
-  { name: "skills", id: "skills", icon: Layers },
-  { name: "contact", id: "contact", icon: Mail },
+const NAV_ITEMS = [
+  { label: "intro", id: "home" },
+  { label: "proof of work", id: "pow" },
+  { label: "projects", id: "projects" },
+  { label: "experience", id: "experience" },
+  { label: "stack", id: "skills" },
+  { label: "contact", id: "contact" },
 ];
 
-export const Navigation = () => {
+export function Navigation() {
   const [activeId, setActiveId] = useState("home");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => {
-            const aTop = a.boundingClientRect.top;
-            const bTop = b.boundingClientRect.top;
-            return Math.abs(aTop) - Math.abs(bTop);
-          });
-        if (visible.length > 0) {
-          setActiveId(visible[0].target.id);
-        }
+          .filter((entry) => entry.isIntersecting)
+          .sort(
+            (a, b) =>
+              Math.abs(a.boundingClientRect.top) -
+              Math.abs(b.boundingClientRect.top)
+          );
+        if (visible.length > 0) setActiveId(visible[0].target.id);
       },
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 }
+      { rootMargin: "-45% 0px -45% 0px", threshold: 0 }
     );
 
-    navItems.forEach((item) => {
+    NAV_ITEMS.forEach((item) => {
       const el = document.getElementById(item.id);
       if (el) observer.observe(el);
     });
@@ -55,61 +40,88 @@ export const Navigation = () => {
     return () => observer.disconnect();
   }, []);
 
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <TooltipProvider delayDuration={0}>
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50"
-      >
-        <nav className="flex items-center gap-1 p-1.5 rounded-full bg-[var(--surface)]/90 backdrop-blur-xl border border-[var(--border)] shadow-lg">
-          {navItems.map((item) => {
-            const Icon = item.icon;
+    <>
+      {/* Mobile: slim sticky bar */}
+      <div className="lg:hidden sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
+        <div className="flex items-center gap-3">
+          <nav
+            aria-label="Sections"
+            className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto py-3"
+          >
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                aria-current={activeId === item.id ? "true" : undefined}
+                className={`font-mono text-[11px] whitespace-nowrap transition-colors ${
+                  activeId === item.id
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <span className="shrink-0">
+            <ThemeToggle />
+          </span>
+        </div>
+      </div>
+
+      {/* Desktop: sticky rail */}
+      <aside className="hidden lg:flex lg:flex-col lg:sticky lg:top-0 lg:h-screen lg:py-24">
+        <nav aria-label="Sections" className="flex flex-col gap-3">
+          {NAV_ITEMS.map((item) => {
             const isActive = activeId === item.id;
             return (
-              <Tooltip key={item.id}>
-                <TooltipTrigger asChild>
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className={`relative p-2 rounded-full transition-all ${
-                      isActive
-                        ? "text-[var(--foreground)]"
-                        : "text-[var(--muted-foreground)] hover:text-[var(--foreground)] hover:bg-[var(--muted)]"
-                    }`}
-                    aria-label={item.name}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {isActive && (
-                      <motion.span
-                        layoutId="nav-dot"
-                        className="absolute -bottom-0.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--accent)]"
-                        transition={{
-                          type: "spring",
-                          stiffness: 350,
-                          damping: 30,
-                        }}
-                      />
-                    )}
-                  </button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p className="text-xs font-mono">{item.name}</p>
-                </TooltipContent>
-              </Tooltip>
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                aria-current={isActive ? "true" : undefined}
+                className="group inline-flex items-center gap-3"
+              >
+                <span
+                  className={`h-px transition-all duration-300 ${
+                    isActive
+                      ? "w-8 bg-accent"
+                      : "w-4 bg-border group-hover:w-8 group-hover:bg-muted-foreground"
+                  }`}
+                />
+                <span
+                  className={`font-mono text-[11px] uppercase tracking-[0.1em] transition-colors ${
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground group-hover:text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </a>
             );
           })}
-          <div className="w-px h-5 bg-[var(--border)] mx-1" />
-          <ThemeToggle />
         </nav>
-      </motion.div>
-    </TooltipProvider>
+
+        <div className="mt-auto flex items-center gap-3">
+          {socials.map((social) => (
+            <a
+              key={social.label}
+              href={social.href}
+              {...(social.href.startsWith("mailto:")
+                ? {}
+                : { target: "_blank", rel: "noopener noreferrer" })}
+              aria-label={social.label}
+              className="text-muted-foreground hover:text-accent transition-colors"
+            >
+              <SocialIcon name={social.icon} className="w-4 h-4" />
+            </a>
+          ))}
+          <span className="ml-auto">
+            <ThemeToggle />
+          </span>
+        </div>
+      </aside>
+    </>
   );
-};
+}

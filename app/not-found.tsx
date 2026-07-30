@@ -1,16 +1,25 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Not found",
+};
 
 export default function NotFound() {
   return (
-    <div className="flex min-h-[60vh] flex-col items-center justify-center gap-4 text-center">
-      <div className="text-6xl font-bold text-neutral-200">404</div>
-      <p className="text-foreground/70">The page you’re looking for doesn’t exist.</p>
-      <Button asChild>
-        <Link href="/">Go home</Link>
-      </Button>
-    </div>
+    <main className="grain flex min-h-screen flex-col items-center justify-center gap-4 px-6 text-center">
+      <p className="font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground">
+        404
+      </p>
+      <h1 className="font-display text-4xl text-foreground">
+        this page doesn&apos;t exist
+      </h1>
+      <Link
+        href="/"
+        className="mt-2 font-mono text-sm text-accent link-hover"
+      >
+        back home
+      </Link>
+    </main>
   );
 }
-
-
