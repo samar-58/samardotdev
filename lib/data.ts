@@ -2,6 +2,7 @@ import type { StaticImageData } from "next/image";
 
 import aryventoryImg from "@/assets/aryventory.png";
 import crowdmintImg from "@/assets/crowdmint.png";
+import scoutImg from "@/assets/scout.png";
 import vestingImg from "@/assets/vesting.png";
 import avatarImg from "@/assets/samar_pfp.jpeg";
 
@@ -180,7 +181,7 @@ export const projects: Project[] = [
     ],
     link: "https://scout.samardev.xyz",
     github: "https://github.com/samar-58/scout",
-    image: null,
+    image: scoutImg,
   },
   {
     title: "HausPet",
