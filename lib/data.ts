@@ -167,6 +167,22 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "Scout",
+    description:
+      "durable multi-agent research system — LangGraph specialists, Inngest-orchestrated pipelines, and typed propose→confirm persistence over live web evidence",
+    tech: [
+      "TypeScript",
+      "Next.js",
+      "FastAPI",
+      "LangGraph",
+      "Inngest",
+      "PostgreSQL",
+    ],
+    link: "https://scout.samardev.xyz",
+    github: "https://github.com/samar-58/scout",
+    image: null,
+  },
+  {
     title: "HausPet",
     description:
       "full-stack + genAI veterinary care platform connecting pet owners, clinics, and vets through web and mobile",
